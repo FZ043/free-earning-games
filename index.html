@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>VIP Scratch & Win | Real Cash Rewards</title>
+    <!-- Canvas Confetti Library -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; user-select: none; }
+        
+        body { 
+            background: #0f0c20; 
+            background-image: radial-gradient(circle at 50% 0%, #2a1b4e 0%, #080612 100%);
+            color: #fff; 
+            min-height: 100vh; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            padding: 20px;
+            overflow-x: hidden;
+        }
+
+        .container { 
+            background: rgba(255, 255, 255, 0.04); 
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 215, 0, 0.25); 
+            border-radius: 28px; 
+            padding: 30px 24px; 
+            width: 100%; 
+            max-width: 420px; 
+            text-align: center; 
+            box-shadow: 0 30px 60px rgba(0,0,0,0.8), inset 0 1px 0 rgba(255,255,255,0.1);
+            position: relative;
+        }
+
+        .badge {
+            background: linear-gradient(90deg, #FFD700, #FFA500);
+            color: #000;
+            font-size: 11px;
+            font-weight: 900;
+            text-transform: uppercase;
+            padding: 6px 14px;
+            border-radius: 20px;
+            letter-spacing: 1.5px;
+            display: inline-block;
+            margin-bottom: 15px;
+            box-shadow: 0 0 15px rgba(255,215,0,0.4);
+        }
+
+        h1 { 
+            font-size: 26px; 
+            font-weight: 800;
+            background: linear-gradient(180deg, #FFFFFF 0%, #AFAFAF 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 6px; 
+        }
+
+        .sub-text { color: #8a88a5; font-size: 13px; margin-bottom: 25px; }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 25px;
+        }
+
+        .stat-card {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 12px;
+            border-radius: 16px;
+        }
+
+        .stat-card .label { font-size: 11px; color: #6b6985; margin-bottom: 4px; }
+        .stat-card .val { font-size: 16px; font-weight: 700; color: #00ff88; }
+
+        /* Scratch Card Styling */
+        .scratch-wrapper {
+            position: relative;
+            background: linear-gradient(145deg, #181430, #0d0a1a);
+            border: 2px dashed rgba(255, 215, 0, 0.4);
+            border-radius: 20px;
+            padding: 40px 20px;
+            cursor: pointer;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+        }
+
+        .scratch-wrapper:hover {
+            border-color: #FFD700;
+            box-shadow: 0 0 25px rgba(255, 215, 0, 0.2);
+        }
+
+        .tap-icon {
+            font-size: 32px;
+            margin-bottom: 10px;
+            animation: bounce 1.5s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+
+        .scratch-title { font-size: 18px; font-weight: 700; color: #FFD700; }
+
+        .win-amount {
+            font-size: 36px;
+            font-weight: 900;
+            background: linear-gradient(90deg, #00FF88, #00E5FF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-top: 5px;
+        }
+
+        /* Prime Glowing Button */
+        .btn { 
+            display: none; 
+            margin-top: 25px; 
+            background: linear-gradient(90deg, #00FF88, #00B894); 
+            color: #000; 
+            text-decoration: none; 
+            padding: 18px 24px; 
+            border-radius: 16px; 
+            font-size: 17px; 
+            font-weight: 900; 
+            letter-spacing: 0.5px;
+            box-shadow: 0 10px 30px rgba(0, 255, 136, 0.3); 
+            text-transform: uppercase; 
+            transition: transform 0.2s, box-shadow 0.2s;
+            animation: pulse-glow 2s infinite;
+        }
+
+        .btn:active { transform: scale(0.96); }
+
+        @keyframes pulse-glow { 
+            0% { box-shadow: 0 0 0 0 rgba(0, 255, 136, 0.5); } 
+            70% { box-shadow: 0 0 0 18px rgba(0, 255, 136, 0); } 
+            100% { box-shadow: 0 0 0 0 rgba(0, 255, 136, 0); } 
+        }
+
+        .disclaimer { 
+            font-size: 10px; 
+            color: #585670; 
+            margin-top: 25px; 
+            line-height: 1.4;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="badge">🔥 VIP Exclusive Loot</div>
+    <h1>Scratch & Win Cash</h1>
+    <p class="sub-text">Tap below to unlock direct sign-up reward</p>
+    
+    <div class="stats-grid">
+        <div class="stat-card">
+            <div class="label">Min. Withdrawal</div>
+            <div class="val">₹100 (Instant)</div>
+        </div>
+        <div class="stat-card">
+            <div class="label">Today's Bonus</div>
+            <div class="val">₹15 - ₹60</div>
+        </div>
+    </div>
+
+    <div id="scratchCard" class="scratch-wrapper" onclick="revealPrimeReward()">
+        <div class="tap-icon">🎁</div>
+        <div id="scratchText" class="scratch-title">TAP TO SCRATCH CARD</div>
+    </div>
+
+    <a id="claimBtn" href="#" class="btn" target="_blank">⚡ CLAIM BONUS & DOWNLOAD</a>
+
+    <div class="disclaimer">
+        <b>18+ Strict Policy:</b> Financial risks are involved in skill/chance gaming. Play responsibly and at your own discretion.
+    </div>
+</div>
+
+<script>
+    const links = [
+        "https://rummy888vip48.com/?code=7WTDERWCXVW&t=1777963514",
+        "https://spingoldagents.net?code=HLTWHS5RMKE&t=1750621241",
+        "https://rummyludoofficial8.com/?code=WZTW44XB2LV&t=1777753326",
+        "https://indclub33.com/?code=34UHFFPLEJH&t=1777753384",
+        "https://www.yesspin33.com?code=47T4B4UWYHU&t=1757557354",
+        "https://indrummya.com?code=FM197WF4PYN&t=1752091280",
+        "https://yonodeposit.net?code=F9MC94ZQG19&t=1748666691",
+        "https://rumblerummyofficial.vip?code=RS3EMEPVXZX&t=1757428674",
+        "https://yonovipv.com?code=3CRT3U7KSMV&t=1758457195",
+        "https://www.abcrummy0.com?code=75CUSEUZWRY&t=1748667111",
+        "https://spin101-a.org/?code=W3JKWVATB87&t=1748666770",
+        "https://yonogames8.com?code=78EQFFSS&t=1748666919",
+        "https://toprummy06.me/?code=X6LUEE118TM&t=1783356879",
+        "https://567slotsagents.cc/?code=9UX7DQ8RNTQ&t=1750336489",
+        "https://jaiho77722.com?code=GC2PD6XQB7K&t=1748666996",
+        "https://slotsspino.com?code=XJB43ULSHNJ&t=1748667410",
+        "https://www.rummy91i.com?code=T75FABFBNM6&5t=1750621345",
+        "https://q-mahagames.com/?code=FQ06T6YRRYX&t=1783357064",
+        "https://spin777g.com/?code=7V9YWWD7QVZ&t=1748667617",
+        "https://spinwinnerfreecash4.com?code=SDNTXXG1D8J&t=1748667451",
+        "https://indslots7.com?code=EYMTHSR3LEL&t=1748666807",
+        "https://101zvip2.com/?code=398HBPHVGAZ&t=1748666954",
+        "https://yonoslotst.com?code=PJBZRJBZUYC&t=1748666656",
+        "https://jaihorummy.co/?code=E74JAVAX9QK&t=1783361460",
+        "https://uonoarcadeagents2.com?code=96LCRNJPZV5&t=1748666734",
+        "https://yonorummyq.com?code=VIPQ3UM6STF&t=1748666866",
+        "https://mbmbet6.com?code=UPHWWZT4MX2&t=1750621459",
+        "https://www.gogorummy17.com/?code=V4UZ8BCG863&t=1748667213",
+        "https://jaihoarcade27.com?code=AZD6T5BWVV8&t=1748667264",
+        "https://789jackpotsrefer.cc/?code=J7ZGVGXXQSR&t=1748667332",
+        "https://jaihospin2.com?code=4169BKD8T2C&t=1748667375",
+        "https://slotswinner9.com/?code=K4EJRQSL3VW&t=1748667653",
+        "https://share277.com/?code=YAZWGZA18E4&t=1769061232",
+        "https://www.bet213.xyz?code=2QTYZ53CCQV&t=1750336241",
+        "https://www.y754.com/?code=4SWTPU7484B&t=1767615080",
+        "https://sharemqm.cyou?pid=447681833&t=pdd2&pkg=com.mqmbet3001.app",
+        "https://jaihowin20.com/?code=1XNLY93W476&t=1767885763",
+        "https://hirummyrefer.vip?code=RX3QVT923KX&t=1753083877",
+        "https://shareslots.games?code=YAZP2P5NCQQ&t=1754896537",
+        "https://mahagames7.com?code=J243N2HKZVR&t=1754023295",
+        "https://www.5loverummy.com?code=P8X11QKFJB7&t=1756037542",
+        "https://jahoslotsagent1.com?code=EGPAZX9U5VA&t=1750607171",
+        "https://bingo101f.com?code=3WFQX81YQMB&t=1750621580",
+        "https://cklfjeselfs.safelyearnmillionsbysharingonepersonaqfxzqyj9.com/?code=ADE1CN3HW7R&t=1783534792",
+        "https://gamesrummy.net/?code=Q6WVHDVATB3&t=1758342823",
+        "https://www.jaihowin20.com/?code=1XNLY93W476&t=1784147955",
+        "https://hindi777refer.app?code=7LFKWM6SN36&t=1760154002",
+        "https://www.okrummy4.com/?code=27BKRWPKEDC&t=1761016070",
+        "https://www.777game3.com/?code=KJV96Q1FYSV&t=1761885688",
+        "https://rummy77a.com/?code=5FNF9ET485Y&t=1764486301",
+        "https://rummy888vip16.com/?code=7WTDERWCXVW&t=1765047313",
+        "https://diwavipshare.club?pid=459831148&t=pdd2&pkg=com.diwavip.h5",
+        "https://bossrummyc.com/?code=9HFNXWBBZP1&t=1766385621",
+        "https://inrrummy.top/?code=8QU95FHRQY2&t=1767494003",
+        "https://jaiho91.io/?code=C428NE89M2C&t=1783533776",
+        "https://jaiho777vip.site/?code=GC29DUH6DWD&t=1783702576",
+        "https://www.maxrummy2.com/?code=QUM8V5GK6NE&t=1784709007",
+        "https://diwatopshare.club?pid=508046301&channel=2010002&t=pdd2&pkg=com.diwatopwhl.app",
+        "https://diwawinshare.vip?pid=507521678&channel=2010002&t=pdd2&pkg=com.diwawin002.app",
+        "https://diwagameshare.club?pid=347646992&channel=2010002&t=pdd2&pkg=com.diwagamewhx.app"
+    ];
+
+    let hasScratched = false;
+
+    function revealPrimeReward() {
+        if(hasScratched) return;
+        hasScratched = true;
+
+        // Mobile Vibration Feedback
+        if (navigator.vibrate) {
+            navigator.vibrate([50, 100, 50]);
+        }
+
+        // Random Cash Amount (15 to 60)
+        const bonus = Math.floor(Math.random() * (60 - 15 + 1)) + 15;
+        const selectedLink = links[Math.floor(Math.random() * links.length)];
+
+        // Confetti Blast Animation
+        confetti({
+            particleCount: 80,
+            spread: 70,
+            origin: { y: 0.6 }
+        });
+
+        // UI Transformation
+        const card = document.getElementById("scratchCard");
+        card.style.background = "rgba(0, 255, 136, 0.05)";
+        card.style.borderColor = "#00FF88";
+        card.innerHTML = `
+            <div style="font-size: 14px; color: #a0a0b0;">CONGRATULATIONS!</div>
+            <div class="win-amount">₹${bonus} CASH</div>
+            <div style="font-size: 12px; color: #00FF88; margin-top: 5px;">Ready to Deposit in Wallet</div>
+        `;
+
+        // Show VIP Download Button
+        const btn = document.getElementById("claimBtn");
+        btn.href = selectedLink;
+        btn.style.display = "block";
+    }
+</script>
+
+</body>
+</html>
