@@ -3,53 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>VIP Stake Casino & Earning Hub</title>
+    <title>STAKE VIP | Mega Casino Hub</title>
     <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Roboto, Helvetica, sans-serif; }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Roboto, sans-serif; }
         
         body { 
             background: #090a0f; 
-            background-image: radial-gradient(circle at 50% 0%, #1a1c29 0%, #090a0f 100%);
+            background-image: radial-gradient(circle at 50% 0%, #1c1e2d 0%, #090a0f 100%);
             color: #ffffff; 
             min-height: 100vh; 
             padding-bottom: 40px;
         }
 
-        /* Top Luxury Header */
+        /* Top Luxury Navbar */
         .navbar {
             background: rgba(15, 17, 26, 0.95);
             backdrop-filter: blur(10px);
-            padding: 15px 20px;
+            padding: 12px 18px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+            border-bottom: 1px solid rgba(255, 215, 0, 0.3);
             position: sticky;
             top: 0;
             z-index: 1000;
         }
 
         .logo {
-            font-size: 20px;
+            font-size: 19px;
             font-weight: 900;
             background: linear-gradient(90deg, #FFD700, #FFA500);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             letter-spacing: 1px;
-            text-transform: uppercase;
         }
 
         .live-badge {
             background: rgba(0, 255, 136, 0.1);
             color: #00ff88;
             border: 1px solid rgba(0, 255, 136, 0.3);
-            padding: 5px 12px;
+            padding: 4px 10px;
             border-radius: 20px;
             font-size: 11px;
             font-weight: 700;
             display: flex;
             align-items: center;
-            gap: 5px;
+            gap: 6px;
         }
 
         .live-dot {
@@ -58,61 +57,60 @@
             background: #00ff88;
             border-radius: 50%;
             box-shadow: 0 0 8px #00ff88;
-            animation: pulse-dot 1.5s infinite;
+            animation: pulse 1.5s infinite;
         }
 
-        @keyframes pulse-dot {
+        @keyframes pulse {
             0% { transform: scale(0.95); opacity: 0.8; }
             50% { transform: scale(1.3); opacity: 1; box-shadow: 0 0 12px #00ff88; }
             100% { transform: scale(0.95); opacity: 0.8; }
         }
 
-        /* Casino Banner */
-        .hero-banner {
+        /* Animated Mega Jackpot Banner */
+        .jackpot-box {
+            margin: 15px;
+            background: linear-gradient(135deg, rgba(255,215,0,0.15) 0%, rgba(255,0,85,0.15) 100%);
+            border: 1px solid rgba(255, 215, 0, 0.5);
+            border-radius: 16px;
+            padding: 18px;
             text-align: center;
-            padding: 30px 20px;
-            background: linear-gradient(135deg, rgba(255,215,0,0.05) 0%, rgba(0,210,255,0.05) 100%);
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-            margin-bottom: 20px;
+            box-shadow: 0 0 25px rgba(255, 215, 0, 0.15);
+            position: relative;
+            overflow: hidden;
         }
 
-        .hero-banner h1 {
-            font-size: 24px;
+        .jackpot-title {
+            font-size: 12px;
+            font-weight: 800;
+            color: #FFD700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .jackpot-amount {
+            font-size: 28px;
             font-weight: 900;
-            margin-bottom: 8px;
-            color: #fff;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
-        }
-
-        .hero-banner h1 span {
-            background: linear-gradient(90deg, #00d2ff, #00ff88);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .hero-banner p {
-            color: #8c92a4;
-            font-size: 13px;
+            color: #ffffff;
+            text-shadow: 0 0 15px rgba(255, 215, 0, 0.8);
+            margin: 5px 0;
+            font-family: monospace;
         }
 
         .section-title {
-            font-size: 16px;
+            font-size: 15px;
             font-weight: 800;
-            padding: 0 20px;
+            padding: 0 18px;
             color: #FFD700;
-            margin-bottom: 15px;
+            margin: 20px 0 12px;
             text-transform: uppercase;
             letter-spacing: 0.5px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
         }
 
         /* Grid Layout */
         .grid-container {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 14px;
+            gap: 12px;
             padding: 0 15px;
             max-width: 650px;
             margin: 0 auto;
@@ -128,54 +126,47 @@
         .app-card {
             background: linear-gradient(145deg, #131622, #0d0f17);
             border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 16px;
-            padding: 15px 12px;
+            border-radius: 14px;
+            padding: 12px 10px;
             text-align: center;
             position: relative;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.4);
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            transition: all 0.3s ease;
+            transition: all 0.2s ease;
         }
 
-        .app-card:hover {
+        .app-card:active {
+            transform: scale(0.97);
             border-color: #FFD700;
-            transform: translateY(-4px);
-            box-shadow: 0 12px 30px rgba(255, 215, 0, 0.15);
         }
 
         .app-number {
             position: absolute;
             top: 8px;
             left: 8px;
-            background: rgba(255, 215, 0, 0.1);
+            background: rgba(255, 215, 0, 0.12);
             color: #FFD700;
             font-size: 10px;
             font-weight: 800;
-            padding: 2px 7px;
+            padding: 2px 6px;
             border-radius: 6px;
             border: 1px solid rgba(255, 215, 0, 0.3);
         }
 
         .app-icon {
-            width: 55px;
-            height: 55px;
+            width: 52px;
+            height: 52px;
             border-radius: 50%;
-            margin: 12px auto 8px;
+            margin: 10px auto 6px;
             background: radial-gradient(circle, #22273b 0%, #0d0f17 100%);
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 22px;
-            box-shadow: inset 0 0 10px rgba(0,0,0,0.8), 0 4px 10px rgba(0,0,0,0.5);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
             border: 2px solid rgba(255, 215, 0, 0.4);
-            animation: float-icon 3s ease-in-out infinite;
-        }
-
-        @keyframes float-icon {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-3px); }
         }
 
         .app-title {
@@ -192,39 +183,32 @@
             font-size: 10px;
             color: #00ff88;
             font-weight: 700;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
             background: rgba(0, 255, 136, 0.08);
-            padding: 3px 0;
+            padding: 2px 0;
             border-radius: 4px;
         }
 
-        /* Glowing Play Button */
         .play-btn {
             background: linear-gradient(90deg, #FFD700, #FFA500);
             color: #000000;
             text-decoration: none;
-            padding: 9px 0;
-            border-radius: 10px;
+            padding: 8px 0;
+            border-radius: 8px;
             font-size: 12px;
             font-weight: 900;
             display: block;
             width: 100%;
-            box-shadow: 0 4px 15px rgba(255, 165, 0, 0.4);
+            box-shadow: 0 4px 12px rgba(255, 165, 0, 0.35);
             text-transform: uppercase;
             letter-spacing: 0.5px;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-
-        .play-btn:active {
-            transform: scale(0.95);
-            box-shadow: 0 2px 8px rgba(255, 165, 0, 0.2);
         }
 
         .disclaimer {
             font-size: 10px;
             color: #53586d;
             text-align: center;
-            margin-top: 35px;
+            margin-top: 30px;
             padding: 0 20px;
             line-height: 1.4;
         }
@@ -232,104 +216,118 @@
 </head>
 <body>
 
-    <!-- Header Navbar -->
+    <!-- Header -->
     <div class="navbar">
-        <div class="logo">💎 Stake VIP</div>
+        <div class="logo">💎 STAKE VIP</div>
         <div class="live-badge">
             <div class="live-dot"></div> SERVER LIVE
         </div>
     </div>
 
-    <!-- Casino Hero Banner -->
-    <div class="hero-banner">
-        <h1>High Roller <span>Casino & Loot Hub</span></h1>
-        <p>Official verified high-payout gaming agents. Instant UPI Payouts.</p>
+    <!-- Animated Jackpot Box -->
+    <div class="jackpot-box">
+        <div class="jackpot-title">🔥 LIVE MEGA JACKPOT 🔥</div>
+        <div class="jackpot-amount" id="jackpot">₹8,54,390</div>
+        <div style="font-size: 11px; color: #8c92a4;">Claim instant bonus on download below</div>
     </div>
 
-    <div class="section-title">⚡ VIP Active Tables (#1 to #61)</div>
+    <div class="section-title">⚡ VIP TABLES (#1 TO #61)</div>
 
-    <!-- Apps Grid (1 to 61) -->
-    <div class="grid-container">
+    <!-- Grid Container -->
+    <div class="grid-container" id="apps-list">
+        <!-- JS se 61 apps load honge -->
+    </div>
 
-        <!-- 1 -->
-        <div class="app-card"><div class="app-number">#1</div><div class="app-icon">🎰</div><div class="app-title">Rummy 888 VIP</div><div class="app-tag">₹15 - ₹60 Bonus</div><a href="https://rummy888vip48.com/?code=7WTDERWCXVW&t=1777963514" class="play-btn" target="_blank">Play Now</a></div>
-        <!-- 2 -->
-        <div class="app-card"><div class="app-number">#2</div><div class="app-icon">🪙</div><div class="app-title">Spin Gold</div><div class="app-tag">₹15 - ₹60 Bonus</div><a href="https://spingoldagents.net?code=HLTWHS5RMKE&t=1750621241" class="play-btn" target="_blank">Play Now</a></div>
-        <!-- 3 -->
-        <div class="app-card"><div class="app-number">#3</div><div class="app-icon">🎲</div><div class="app-title">Ludo Rummy</div><div class="app-tag">₹15 - ₹60 Bonus</div><a href="https://rummyludoofficial8.com/?code=WZTW44XB2LV&t=1777753326" class="play-btn" target="_blank">Play Now</a></div>
-        <!-- 4 -->
-        <div class="app-card"><div class="app-number">#4</div><div class="app-icon">🃏</div><div class="app-title">Ind Club</div><div class="app-tag">₹15 - ₹60 Bonus</div><a href="https://indclub33.com/?code=34UHFFPLEJH&t=1777753384" class="play-btn" target="_blank">Play Now</a></div>
-        <!-- 5 -->
-        <div class="app-card"><div class="app-number">#5</div><div class="app-icon">🎯</div><div class="app-title">Yes Spin</div><div class="app-tag">₹15 - ₹60 Bonus</div><a href="https://www.yesspin33.com?code=47T4B4UWYHU&t=1757557354" class="play-btn" target="_blank">Play Now</a></div>
-        <!-- 6 -->
-        <div class="app-card"><div class="app-number">#6</div><div class="app-icon">🎴</div><div class="app-title">Ind Rummy</div><div class="app-tag">₹15 - ₹60 Bonus</div><a href="https://indrummya.com?code=FM197WF4PYN&t=1752091280" class="play-btn" target="_blank">Play Now</a></div>
-        <!-- 7 -->
-        <div class="app-card"><div class="app-number">#7</div><div class="app-icon">🔥</div><div class="app-title">Yono 777</div><div class="app-tag">₹15 - ₹60 Bonus</div><a href="https://yonodeposit.net?code=F9MC94ZQG19&t=1748666691" class="play-btn" target="_blank">Play Now</a></div>
-        <!-- 8 -->
-        <div class="app-card"><div class="app-number">#8</div><div class="app-icon">🃏</div><div class="app-title">Rumble Rummy</div><div class="app-tag">₹15 - ₹60 Bonus</div><a href="https://rumblerummyofficial.vip?code=RS3EMEPVXZX&t=1757428674" class="play-btn" target="_blank">Play Now</a></div>
-        <!-- 9 -->
-        <div class="app-card"><div class="app-number">#9</div><div class="app-icon">👑</div><div class="app-title">Yono VIP</div><div class="app-tag">₹15 - ₹60 Bonus</div><a href="https://yonovipv.com?code=3CRT3U7KSMV&t=1758457195" class="play-btn" target="_blank">Play Now</a></div>
-        <!-- 10 -->
-        <div class="app-card"><div class="app-number">#10</div><div class="app-icon">♠️</div><div class="app-title">ABC Rummy</div><div class="app-tag">₹15 - ₹60 Bonus</div><a href="https://www.abcrummy0.com?code=75CUSEUZWRY&t=1748667111" class="play-btn" target="_blank">Play Now</a></div>
-        <!-- 11 -->
-        <div class="app-card"><div class="app-number">#11</div><div class="app-icon">🎡</div><div class="app-title">Spin 101</div><div class="app-tag">₹15 - ₹60 Bonus</div><a href="https://spin101-a.org/?code=W3JKWVATB87&t=1748666770" class="play-btn" target="_blank">Play Now</a></div>
-        <!-- 12 -->
-        <div class="app-card"><div class="app-number">#12</div><div class="app-icon">🎮</div><div class="app-title">Yono Games</div><div class="app-tag">₹15 - ₹60 Bonus</div><a href="https://yonogames8.com?code=78EQFFSS&t=1748666919" class="play-btn" target="_blank">Play Now</a></div>
-        <!-- 13 -->
-        <div class="app-card"><div class="app-number">#13</div><div class="app-icon">🏆</div><div class="app-title">Top Rummy</div><div class="app-tag">₹15 - ₹60 Bonus</div><a href="https://toprummy06.me/?code=X6LUEE118TM&t=1783356879" class="play-btn" target="_blank">Play Now</a></div>
-        <!-- 14 -->
-        <div class="app-card"><div class="app-number">#14</div><div class="app-icon">🎰</div><div class="app-title">567 Slots</div><div class="app-tag">₹15 - ₹60 Bonus</div><a href="https://567slotsagents.cc/?code=9UX7DQ8RNTQ&t=1750336489" class="play-btn" target="_blank">Play Now</a></div>
-        <!-- 15 -->
-        <div class="app-card"><div class="app-number">#15</div><div class="app-icon">⚡</div><div class="app-title">Jaiho 777</div><div class="app-tag">₹15 - ₹60 Bonus</div><a href="https://jaiho77722.com?code=GC2PD6XQB7K&t=1748666996" class="play-btn" target="_blank">Play Now</a></div>
-        <!-- 16 -->
-        <div class="app-card"><div class="app-number">#16</div><div class="app-icon">🎯</div><div class="app-title">Slot Spino</div><div class="app-tag">₹15 - ₹60 Bonus</div><a href="https://slotsspino.com?code=XJB43ULSHNJ&t=1748667410" class="play-btn" target="_blank">Play Now</a></div>
-        <!-- 17 -->
-        <div class="app-card"><div class="app-number">#17</div><div class="app-icon">🃏</div><div class="app-title">Rummy 91</div><div class="app-tag">₹15 - ₹60 Bonus</div><a href="https://www.rummy91i.com?code=T75FABFBNM6&5t=1750621345" class="play-btn" target="_blank">Play Now</a></div>
-        <!-- 18 -->
-        <div class="app-card"><div class="app-number">#18</div><div class="app-icon">💎</div><div class="app-title">Maha Games</div><div class="app-tag">₹15 - ₹60 Bonus</div><a href="https://q-mahagames.com/?code=FQ06T6YRRYX&t=1783357064" class="play-btn" target="_blank">Play Now</a></div>
-        <!-- 19 -->
-        <div class="app-card"><div class="app-number">#19</div><div class="app-icon">🎰</div><div class="app-title">Spin 777</div><div class="app-tag">₹15 - ₹60 Bonus</div><a href="https://spin777g.com/?code=7V9YWWD7QVZ&t=1748667617" class="play-btn" target="_blank">Play Now</a></div>
-        <!-- 20 -->
-        <div class="app-card"><div class="app-number">#20</div><div class="app-icon">🎁</div><div class="app-title">Spin Winner</div><div class="app-tag">₹15 - ₹60 Bonus</div><a href="https://spinwinnerfreecash4.com?code=SDNTXXG1D8J&t=1748667451" class="play-btn" target="_blank">Play Now</a></div>
-        <!-- 21 -->
-        <div class="app-card"><div class="app-number">#21</div><div class="app-icon">🎰</div><div class="app-title">Ind Slots</div><div class="app-tag">₹15 - ₹60 Bonus</div><a href="https://indslots7.com?code=EYMTHSR3LEL&t=1748666807" class="play-btn" target="_blank">Play Now</a></div>
-        <!-- 22 -->
-        <div class="app-card"><div class="app-number">#22</div><div class="app-icon">👑</div><div class="app-title">Z101 VIP</div><div class="app-tag">₹15 - ₹60 Bonus</div><a href="https://101zvip2.com/?code=398HBPHVGAZ&t=1748666954" class="play-btn" target="_blank">Play Now</a></div>
-        <!-- 23 -->
-        <div class="app-card"><div class="app-number">#23</div><div class="app-icon">🎰</div><div class="app-title">Yono Slots</div><div class="app-tag">₹15 - ₹60 Bonus</div><a href="https://yonoslotst.com?code=PJBZRJBZUYC&t=1748666656" class="play-btn" target="_blank">Play Now</a></div>
-        <!-- 24 -->
-        <div class="app-card"><div class="app-number">#24</div><div class="app-icon">🃏</div><div class="app-title">Jaiho Rummy</div><div class="app-tag">₹15 - ₹60 Bonus</div><a href="https://jaihorummy.co/?code=E74JAVAX9QK&t=1783361460" class="play-btn" target="_blank">Play Now</a></div>
-        <!-- 25 -->
-        <div class="app-card"><div class="app-number">#25</div><div class="app-icon">🕹️</div><div class="app-title">Yono Arcade</div><div class="app-tag">₹15 - ₹60 Bonus</div><a href="https://uonoarcadeagents2.com?code=96LCRNJPZV5&t=1748666734" class="play-btn" target="_blank">Play Now</a></div>
-        <!-- 26 -->
-        <div class="app-card"><div class="app-number">#26</div><div class="app-icon">🃏</div><div class="app-title">Yono Rummy Q</div><div class="app-tag">₹15 - ₹60 Bonus</div><a href="https://yonorummyq.com?code=VIPQ3UM6STF&t=1748666866" class="play-btn" target="_blank">Play Now</a></div>
-        <!-- 27 -->
-        <div class="app-card"><div class="app-number">#27</div><div class="app-icon">🎲</div><div class="app-title">MBM Bet</div><div class="app-tag">₹15 - ₹60 Bonus</div><a href="https://mbmbet6.com?code=UPHWWZT4MX2&t=1750621459" class="play-btn" target="_blank">Play Now</a></div>
-        <!-- 28 -->
-        <div class="app-card"><div class="app-number">#28</div><div class="app-icon">🃏</div><div class="app-title">Gogo Rummy</div><div class="app-tag">₹15 - ₹60 Bonus</div><a href="https://www.gogorummy17.com/?code=V4UZ8BCG863&t=1748667213" class="play-btn" target="_blank">Play Now</a></div>
-        <!-- 29 -->
-        <div class="app-card"><div class="app-number">#29</div><div class="app-icon">🎮</div><div class="app-title">Jaiho Arcade</div><div class="app-tag">₹15 - ₹60 Bonus</div><a href="https://jaihoarcade27.com?code=AZD6T5BWVV8&t=1748667264" class="play-btn" target="_blank">Play Now</a></div>
-        <!-- 30 -->
-        <div class="app-card"><div class="app-number">#30</div><div class="app-icon">💰</div><div class="app-title">789 Jackpots</div><div class="app-tag">₹15 - ₹60 Bonus</div><a href="https://789jackpotsrefer.cc/?code=J7ZGVGXXQSR&t=1748667332" class="play-btn" target="_blank">Play Now</a></div>
-        <!-- 31 -->
-        <div class="app-card"><div class="app-number">#31</div><div class="app-icon">🎯</div><div class="app-title">Jaiho Spin</div><div class="app-tag">₹15 - ₹60 Bonus</div><a href="https://jaihospin2.com?code=4169BKD8T2C&t=1748667375" class="play-btn" target="_blank">Play Now</a></div>
-        <!-- 32 -->
-        <div class="app-card"><div class="app-number">#32</div><div class="app-icon">🎰</div><div class="app-title">Slot Winner</div><div class="app-tag">₹15 - ₹60 Bonus</div><a href="https://slotswinner9.com/?code=K4EJRQSL3VW&t=1748667653" class="play-btn" target="_blank">Play Now</a></div>
-        <!-- 33 -->
-        <div class="app-card"><div class="app-number">#33</div><div class="app-icon">🃏</div><div class="app-title">Rummy 365</div><div class="app-tag">₹15 - ₹60 Bonus</div><a href="https://share277.com/?code=YAZWGZA18E4&t=1769061232" class="play-btn" target="_blank">Play Now</a></div>
-        <!-- 34 -->
-        <div class="app-card"><div class="app-number">#34</div><div class="app-icon">🎲</div><div class="app-title">Bet 213</div><div class="app-tag">₹15 - ₹60 Bonus</div><a href="https://www.bet213.xyz?code=2QTYZ53CCQV&t=1750336241" class="play-btn" target="_blank">Play Now</a></div>
-        <!-- 35 -->
-        <div class="app-card"><div class="app-number">#35</div><div class="app-icon">🕹️</div><div class="app-title">Y754 Game</div><div class="app-tag">₹15 - ₹60 Bonus</div><a href="https://www.y754.com/?code=4SWTPU7484B&t=1767615080" class="play-btn" target="_blank">Play Now</a></div>
-        <!-- 36 -->
-        <div class="app-card"><div class="app-number">#36</div><div class="app-icon">🎲</div><div class="app-title">MQM Bet</div><div class="app-tag">₹15 - ₹60 Bonus</div><a href="https://sharemqm.cyou?pid=447681833&t=pdd2&pkg=com.mqmbet3001.app" class="play-btn" target="_blank">Play Now</a></div>
-        <!-- 37 -->
-        <div class="app-card"><div class="app-number">#37</div><div class="app-icon">🏆</div><div class="app-title">Jaiho Win</div><div class="app-tag">₹15 - ₹60 Bonus</div><a href="https://jaihowin20.com/?code=1XNLY93W476&t=1767885763" class="play-btn" target="_blank">Play Now</a></div>
-        <!-- 38 -->
-        <div class="app-card"><div class="app-number">#38</div><div class="app-icon">🃏</div><div class="app-title">Hi Rummy</div><div class="app-tag">₹15 - ₹60 Bonus</div><a href="https://hirummyrefer.vip?code=RX3QVT923KX&t=1753083877" class="play-btn" target="_blank">Play Now</a></div>
-        <!-- 39 -->
-        <div class="app-card"><div class="app-number">#39</div><div class="app-icon">🎰</div><div class="app-title">Share Slot</div><div class="app-tag">₹15 - ₹60 Bonus</div><a href="https://shareslots.games?code=YAZP2P5NCQQ&t=1754896537" class="play-btn" target="_blank">Play Now</a></div>
-        <!-- 40 -->
-        <div class="app-card"><div class="app-number">#40</div><div class="app-icon">💎</div><div class="app-title">Maha Games 7</div><div class="app-tag">₹15 - ₹60 Bonus</div><a href="https://mahagames7.com?code=J243N2HKZVR&t=1754023295" class="play-btn" target="_blank">Play Now</a></div>
-        <!-- 41 -->
-        <div class="app-card"><div class="app-number">#41</div><div class="ap
+    <div class="disclaimer">
+        <b>18+ Responsible Gaming:</b> Real money gaming involves risk. Play at your own discretion.
+    </div>
+
+    <script>
+        // 61 Apps Data Array (Guaranteed All Loaded)
+        const appsData = [
+            { id: 1, icon: "🎰", title: "Rummy 888 VIP", link: "https://rummy888vip48.com/?code=7WTDERWCXVW&t=1777963514" },
+            { id: 2, icon: "🪙", title: "Spin Gold", link: "https://spingoldagents.net?code=HLTWHS5RMKE&t=1750621241" },
+            { id: 3, icon: "🎲", title: "Ludo Rummy", link: "https://rummyludoofficial8.com/?code=WZTW44XB2LV&t=1777753326" },
+            { id: 4, icon: "🃏", title: "Ind Club", link: "https://indclub33.com/?code=34UHFFPLEJH&t=1777753384" },
+            { id: 5, icon: "🎯", title: "Yes Spin", link: "https://www.yesspin33.com?code=47T4B4UWYHU&t=1757557354" },
+            { id: 6, icon: "🎴", title: "Ind Rummy", link: "https://indrummya.com?code=FM197WF4PYN&t=1752091280" },
+            { id: 7, icon: "🔥", title: "Yono 777", link: "https://yonodeposit.net?code=F9MC94ZQG19&t=1748666691" },
+            { id: 8, icon: "🃏", title: "Rumble Rummy", link: "https://rumblerummyofficial.vip?code=RS3EMEPVXZX&t=1757428674" },
+            { id: 9, icon: "👑", title: "Yono VIP", link: "https://yonovipv.com?code=3CRT3U7KSMV&t=1758457195" },
+            { id: 10, icon: "♠️", title: "ABC Rummy", link: "https://www.abcrummy0.com?code=75CUSEUZWRY&t=1748667111" },
+            { id: 11, icon: "🎡", title: "Spin 101", link: "https://spin101-a.org/?code=W3JKWVATB87&t=1748666770" },
+            { id: 12, icon: "🎮", title: "Yono Games", link: "https://yonogames8.com?code=78EQFFSS&t=1748666919" },
+            { id: 13, icon: "🏆", title: "Top Rummy", link: "https://toprummy06.me/?code=X6LUEE118TM&t=1783356879" },
+            { id: 14, icon: "🎰", title: "567 Slots", link: "https://567slotsagents.cc/?code=9UX7DQ8RNTQ&t=1750336489" },
+            { id: 15, icon: "⚡", title: "Jaiho 777", link: "https://jaiho77722.com?code=GC2PD6XQB7K&t=1748666996" },
+            { id: 16, icon: "🎯", title: "Slot Spino", link: "https://slotsspino.com?code=XJB43ULSHNJ&t=1748667410" },
+            { id: 17, icon: "🃏", title: "Rummy 91", link: "https://www.rummy91i.com?code=T75FABFBNM6&5t=1750621345" },
+            { id: 18, icon: "💎", title: "Maha Games", link: "https://q-mahagames.com/?code=FQ06T6YRRYX&t=1783357064" },
+            { id: 19, icon: "🎰", title: "Spin 777", link: "https://spin777g.com/?code=7V9YWWD7QVZ&t=1748667617" },
+            { id: 20, icon: "🎁", title: "Spin Winner", link: "https://spinwinnerfreecash4.com?code=SDNTXXG1D8J&t=1748667451" },
+            { id: 21, icon: "🎰", title: "Ind Slots", link: "https://indslots7.com?code=EYMTHSR3LEL&t=1748666807" },
+            { id: 22, icon: "👑", title: "Z101 VIP", link: "https://101zvip2.com/?code=398HBPHVGAZ&t=1748666954" },
+            { id: 23, icon: "🎰", title: "Yono Slots", link: "https://yonoslotst.com?code=PJBZRJBZUYC&t=1748666656" },
+            { id: 24, icon: "🃏", title: "Jaiho Rummy", link: "https://jaihorummy.co/?code=E74JAVAX9QK&t=1783361460" },
+            { id: 25, icon: "🕹️", title: "Yono Arcade", link: "https://uonoarcadeagents2.com?code=96LCRNJPZV5&t=1748666734" },
+            { id: 26, icon: "🃏", title: "Yono Rummy Q", link: "https://yonorummyq.com?code=VIPQ3UM6STF&t=1748666866" },
+            { id: 27, icon: "🎲", title: "MBM Bet", link: "https://mbmbet6.com?code=UPHWWZT4MX2&t=1750621459" },
+            { id: 28, icon: "🃏", title: "Gogo Rummy", link: "https://www.gogorummy17.com/?code=V4UZ8BCG863&t=1748667213" },
+            { id: 29, icon: "🎮", title: "Jaiho Arcade", link: "https://jaihoarcade27.com?code=AZD6T5BWVV8&t=1748667264" },
+            { id: 30, icon: "💰", title: "789 Jackpots", link: "https://789jackpotsrefer.cc/?code=J7ZGVGXXQSR&t=1748667332" },
+            { id: 31, icon: "🎯", title: "Jaiho Spin", link: "https://jaihospin2.com?code=4169BKD8T2C&t=1748667375" },
+            { id: 32, icon: "🎰", title: "Slot Winner", link: "https://slotswinner9.com/?code=K4EJRQSL3VW&t=1748667653" },
+            { id: 33, icon: "🃏", title: "Rummy 365", link: "https://share277.com/?code=YAZWGZA18E4&t=1769061232" },
+            { id: 34, icon: "🎲", title: "Bet 213", link: "https://www.bet213.xyz?code=2QTYZ53CCQV&t=1750336241" },
+            { id: 35, icon: "🕹️", title: "Y754 Game", link: "https://www.y754.com/?code=4SWTPU7484B&t=1767615080" },
+            { id: 36, icon: "🎲", title: "MQM Bet", link: "https://sharemqm.cyou?pid=447681833&t=pdd2&pkg=com.mqmbet3001.app" },
+            { id: 37, icon: "🏆", title: "Jaiho Win", link: "https://jaihowin20.com/?code=1XNLY93W476&t=1767885763" },
+            { id: 38, icon: "🃏", title: "Hi Rummy", link: "https://hirummyrefer.vip?code=RX3QVT923KX&t=1753083877" },
+            { id: 39, icon: "🎰", title: "Share Slot", link: "https://shareslots.games?code=YAZP2P5NCQQ&t=1754896537" },
+            { id: 40, icon: "💎", title: "Maha Games 7", link: "https://mahagames7.com?code=J243N2HKZVR&t=1754023295" },
+            { id: 41, icon: "❤️", title: "Love Rummy", link: "https://www.5loverummy.com?code=P8X11QKFJB7&t=1756037542" },
+            { id: 42, icon: "🎰", title: "Jaiho Slots", link: "https://jahoslotsagent1.com?code=EGPAZX9U5VA&t=1750607171" },
+            { id: 43, icon: "🎯", title: "Bingo 101", link: "https://bingo101f.com?code=3WFQX81YQMB&t=1750621580" },
+            { id: 44, icon: "🚀", title: "Spin Crash", link: "https://cklfjeselfs.safelyearnmillionsbysharingonepersonaqfxzqyj9.com/?code=ADE1CN3HW7R&t=1783534792" },
+            { id: 45, icon: "🃏", title: "Games Rummy", link: "https://gamesrummy.net/?code=Q6WVHDVATB3&t=1758342823" },
+            { id: 46, icon: "🎰", title: "Hindi 777", link: "https://hindi777refer.app?code=7LFKWM6SN36&t=1760154002" },
+            { id: 47, icon: "🃏", title: "Ok Rummy", link: "https://www.okrummy4.com/?code=27BKRWPKEDC&t=1761016070" },
+            { id: 48, icon: "🔥", title: "777 Game", link: "https://www.777game3.com/?code=KJV96Q1FYSV&t=1761885688" },
+            { id: 49, icon: "🎰", title: "Saga Slots", link: "https://www.sagaslotsw.com" },
+            { id: 50, icon: "🃏", title: "Rummy 77", link: "https://rummy77a.com/?code=5FNF9ET485Y&t=1764486301" },
+            { id: 51, icon: "👑", title: "Diwa VIP", link: "https://diwavipshare.club?pid=459831148&t=pdd2&pkg=com.diwavip.h5" },
+            { id: 52, icon: "🃏", title: "Boss Rummy", link: "https://bossrummyc.com/?code=9HFNXWBBZP1&t=1766385621" },
+            { id: 53, icon: "🇮🇳", title: "INR Rummy", link: "https://inrrummy.top/?code=8QU95FHRQY2&t=1767494003" },
+            { id: 54, icon: "🔥", title: "Jaiho 91", link: "https://jaiho91.io/?code=C428NE89M2C&t=1783533776" },
+            { id: 55, icon: "🎰", title: "VIP 777", link: "https://jaiho777vip.site/?code=GC29DUH6DWD&t=1783702576" },
+            { id: 56, icon: "🃏", title: "Max Rummy", link: "https://www.maxrummy2.com/?code=QUM8V5GK6NE&t=1784709007" },
+            { id: 57, icon: "🏆", title: "Diwa Top", link: "https://diwatopshare.club?pid=508046301&channel=2010002&t=pdd2&pkg=com.diwatopwhl.app" },
+            { id: 58, icon: "🔥", title: "Diwa Win", link: "https://diwawinshare.vip?pid=507521678&channel=2010002&t=pdd2&pkg=com.diwawin002.app" },
+            { id: 59, icon: "🎮", title: "Diwa Game", link: "https://diwagameshare.club?pid=347646992&channel=2010002&t=pdd2&pkg=com.diwagamewhx.app" },
+            { id: 60, icon: "🎰", title: "Gold Slots", link: "https://spingoldagents.net?code=HLTWHS5RMKE&t=1750621241" },
+            { id: 61, icon: "👑", title: "Mega Rummy", link: "https://rummy888vip48.com/?code=7WTDERWCXVW&t=1777963514" }
+        ];
+
+        // Render Cards Loop
+        const container = document.getElementById('apps-list');
+        appsData.forEach(app => {
+            container.innerHTML += `
+                <div class="app-card">
+                    <div class="app-number">#${app.id}</div>
+                    <div class="app-icon">${app.icon}</div>
+                    <div class="app-title">${app.title}</div>
+                    <div class="app-tag">Bonus ₹15-₹60</div>
+                    <a href="${app.link}" class="play-btn" target="_blank">PLAY NOW</a>
+                </div>
+            `;
+        });
+
+        // Animated Jackpot Counter
+        let jackpotVal = 854390;
+        setInterval(() => {
+            jackpotVal += Math.floor(Math.random() * 50) + 10;
+            document.getElementById('jackpot').innerText = '₹' + jackpotVal.toLocaleString('en-IN');
+        }, 2000);
+    </script>
+</body>
+</html>
